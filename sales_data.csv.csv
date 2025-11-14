@@ -1,0 +1,6 @@
+order_id,customer_id,region,product,quantity,price,order_date
+1,101,Europe,Laptop,1,1200,12/1/2024
+2,102,Asia,Phone,2,600,12/2/2024
+3,101,Europe,Mouse,3,20,12/3/2024
+4,103,America,Monitor,1,300,12/4/2024
+5,104,Asia,Laptop,1,1100,12/5/2024
