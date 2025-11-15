@@ -1,63 +1,46 @@
-##Sales Data Analytics Pipeline (Databricks + Delta Lake + Power BI)
+# **Sales Data Analytics Project**
 
-A complete end-to-end data engineering project built using Databricks, PySpark, Delta Lake, and Power BI, following the Medallion Architecture (Bronze → Silver → Gold).
+This project demonstrates an end-to-end Data Engineering pipeline using Databricks, PySpark, Delta Lake, and Power BI.
+Raw CSV files are processed through the Bronze–Silver–Gold architecture, and the curated Gold tables are visualized in a Power BI dashboard.
 
-##Project Workflow
-CSV File → Databricks Volume → Bronze Table → Silver Table → Gold Tables → Power BI Dashboard
+## **Project Workflow**
 
-🛠 Tech Stack
+### Upload raw CSV to Databricks Volumes
 
-Databricks
+### Load data into Bronze layer
 
-PySpark
+- Used spark.read.csv() to read raw data
+- Stored as Delta tables
 
-Delta Lake
+### Silver layer transformations
 
-DBFS / Volumes
+- Cleaned data
+- Casted order_date to date format
+- Added computed fields (total_amount)
 
-GitHub Integration
+### Gold layer aggregation
 
-Power BI Desktop
+- Daily sales
+- Sales by region
+- Total orders
 
-##Bronze Layer – Raw Ingestion
+### Power BI Visualization
 
-Uploaded sales_data.csv to Volumes
+- Connected Power BI → Databricks SQL Warehouse
+- Imported Gold tables
+- Built Sales Analytics Dashboard
 
-Loaded CSV into DataFrame with schema inference
+### Architecture Diagram
+Raw CSV → Bronze (Raw) → Silver (Cleaned) → Gold (Aggregated) → Power BI Dashboard
 
-Saved as Delta Bronze Table (no cleaning)
-`
-df_bronze = spark.read.csv("/Volumes/lakehouse/bronze/rawfiles/sales_data.csv",
-                           header=True, inferSchema=True)
+### Tech Stack
 
-df_bronze.write.format("delta").saveAsTable("lakehouse.bronze.sales_bronze")`
+- Databricks
+- PySpark
+- Delta Lake
+- SQL Warehouse
+- Power BI
+- Dashboard Preview
 
-##Silver Layer – Cleaning & Transformations
-
-Converted order_date to DATE
-
-Added total_amount = quantity * price
-
-Removed duplicates
-
-`df_silver = (df_bronze
-             .withColumn("order_date", F.to_date("order_date", "M/d/yyyy"))
-             .withColumn("total_amount", F.col("quantity") * F.col("price"))
-             .dropDuplicates())
-
-df_silver.write.format("delta").saveAsTable("lakehouse.silver.sales_silver")`
-
-##Gold Layer – Aggregations
-`Daily Sales
-df_daily_sales = (df_silver.groupBy("order_date")
-                  .agg(F.sum("total_amount").alias("daily_sales")))
-
-Sales by Region
-df_sales_region = (df_silver.groupBy("region")
-                   .agg(F.sum("total_amount").alias("total_sales"),
-                        F.count("*").alias("num_orders")))`
-
-##Power BI Dashboard
-
-Connected Power BI → Databricks SQL Warehouse → imported Gold tables.
-![Dashboard]("/Workspace/Users/patilaishwarya422@gmail.com/DataEngineer-Projects/image/SalesDashboard.png")
+### Below is the visualization created in Power BI:
+![Sales Dashboard](image/SalesDashboard.png)
