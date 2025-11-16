@@ -1,0 +1,11 @@
+customer_id,name,age,gender,country,signup_date,segment,income
+101,John Doe,34,M,USA,3/18/2021,Premium,82000
+102,Ana Singh,29,F,India,1/10/2022,Standard,54000
+103,Michael Tan,41,M,Singapore,9/22/2020,Premium,95000
+104,Sarah Lee,25,F,UK,4/12/2023,Basic,39000
+105,David Kim,32,M,South Korea,7/15/2021,Standard,61000
+106,Maria Garcia,28,F,Spain,8/20/2022,Premium,72000
+107,Tom Hanks,45,M,USA,5/9/2019,Premium,105000
+108,Sophia Rossi,37,F,Italy,2/27/2021,Standard,58000
+109,Emily Chen,30,F,China,11/5/2021,Basic,45000
+110,James Smith,50,M,Canada,6/12/2018,Premium,110000

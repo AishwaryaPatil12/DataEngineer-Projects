@@ -1,0 +1,11 @@
+order_id,customer_id,order_date,product,category,quantity,unit_price,discount,payment_method,region
+5001,101,1/5/2024,Laptop,Electronics,1,4/14/1903,0,UPI,North America
+5002,102,1/6/2024,Phone,Electronics,1,11/30/1901,10,Credit Card,Asia
+5003,103,1/6/2024,Desk,Furniture,2,5/29/1900,5,Paypal,Asia
+5004,101,1/10/2024,Mouse,Electronics,3,1/20/1900,0,UPI,North America
+5005,105,1/11/2024,Monitor,Electronics,1,9/6/1900,0,Credit Card,Asia
+5006,110,1/12/2024,Table,Furniture,1,300,15,Debit Card,Europe
+5007,107,1/12/2024,Headphones,Electronics,2,80,0,Credit Card,North America
+5008,109,1/14/2024,Chair,Furniture,4,75,5,UPI,Asia
+5009,103,1/15/2024,Keyboard,Electronics,1,45,0,Credit Card,Asia
+5010,101,1/16/2024,Camera,Electronics,1,600,10,Paypal,North America
